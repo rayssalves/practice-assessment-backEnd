@@ -50,6 +50,3 @@ module.exports = {
     await queryInterface.bulkDelete("users", null, {});
   },
 };
-// name: { type: DataTypes.STRING, allowNull: false },
-//       content: DataTypes.TEXT,
-//       imageUrl: DataTypes.STRING,

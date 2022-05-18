@@ -9,7 +9,6 @@ module.exports = {
           title: "Nice",
           description:
             "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ",
-          password: "444",
           backgroundColor: "#FAEBD7",
           color: "#FF7F50",
           createdAt: new Date(),
@@ -19,7 +18,6 @@ module.exports = {
           title: "Cool",
           description:
             "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ",
-          password: "555",
           backgroundColor: "#FF7F50",
           color: "#FAEBD7",
           createdAt: new Date(),
