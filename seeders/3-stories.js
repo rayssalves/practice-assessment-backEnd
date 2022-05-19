@@ -13,6 +13,7 @@ module.exports = {
             "https://images.theconversation.com/files/225151/original/file-20180627-112641-idgmo2.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=900.0&fit=crop",
           createdAt: new Date(),
           updatedAt: new Date(),
+          spaceId: 1,
         },
         {
           name: "My favorite Island",
@@ -22,6 +23,7 @@ module.exports = {
             "https://media-cdn.tripadvisor.com/media/photo-s/12/e3/3b/06/20180507-145857-largejpg.jpg",
           createdAt: new Date(),
           updatedAt: new Date(),
+          spaceId: 2,
         },
         {
           name: "The best steack I had",
@@ -31,6 +33,7 @@ module.exports = {
             "https://produits.bienmanger.com/37388-0w470h470_Steack_Extra_Aubrac_160g.jpg",
           createdAt: new Date(),
           updatedAt: new Date(),
+          spaceId: 1,
         },
         {
           name: "My love",
@@ -40,6 +43,7 @@ module.exports = {
             "https://i.pinimg.com/736x/94/11/0f/94110f1f6de4160c9f7c0921afc95b7a.jpg",
           createdAt: new Date(),
           updatedAt: new Date(),
+          spaceId: 2,
         },
       ],
       {}

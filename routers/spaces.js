@@ -1,17 +1,33 @@
 const { Router } = require("express");
-//const res = require("express/lib/response");
+const router = new Router();
 const Space = require("../models").space;
+const Story = require("../models/").story;
 
-const spaceRouter = new Router();
-
-spaceRouter.get("/", async (request, response, next) => {
+router.get("/", async (req, res, next) => {
   try {
-    const spaces = await Space.findAll();
-    response.send(spaces);
-  } catch (error) {
-    console.log(error);
-    next(error);
+    res.send(await Space.findAll());
+  } catch (e) {
+    console.log(e);
+    next(e);
   }
 });
 
-module.exports = spaceRouter;
+//goes to the details page
+
+router.get("/:id", async (req, res, next) => {
+  try {
+    const specificSpace = await Space.findByPk(req.params.id, {
+      include: [Story],
+    });
+    if (!specificSpace) {
+      res.status(404).send(`Space with id ${req.params.id} not found`);
+    } else {
+      res.send(specificSpace);
+    }
+  } catch (e) {
+    console.log(e);
+    next(e);
+  }
+});
+
+module.exports = router;

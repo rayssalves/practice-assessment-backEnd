@@ -13,6 +13,7 @@ module.exports = {
           color: "#FF7F50",
           createdAt: new Date(),
           updatedAt: new Date(),
+          userId: 1,
         },
         {
           title: "Cool",
@@ -22,6 +23,7 @@ module.exports = {
           color: "#FAEBD7",
           createdAt: new Date(),
           updatedAt: new Date(),
+          userId: 2,
         },
       ],
       {}
