@@ -3,6 +3,7 @@ const { Router } = require("express");
 const { toJWT } = require("../auth/jwt");
 const authMiddleware = require("../auth/middleware");
 const User = require("../models/").user;
+const Space = require("../models/").space;
 const { SALT_ROUNDS } = require("../config/constants");
 
 const router = new Router();
@@ -33,7 +34,7 @@ router.post("/login", async (req, res, next) => {
     return res.status(400).send({ message: "Something went wrong, sorry" });
   }
 });
-
+//register user
 router.post("/signup", async (req, res) => {
   const { email, password, name } = req.body;
   if (!email || !password || !name) {
@@ -41,10 +42,21 @@ router.post("/signup", async (req, res) => {
   }
 
   try {
+    //creating user
     const newUser = await User.create({
       email,
       password: bcrypt.hashSync(password, SALT_ROUNDS),
       name,
+    });
+    //creating space
+    await Space.create({
+      //
+      title: `${name}'s space`,
+      description: null,
+      backgroundColor: "#ffffff",
+      color: "#000000",
+      userId: newUser.id,
+      //getting id of users
     });
 
     delete newUser.dataValues["password"]; // don't send back the password hash
