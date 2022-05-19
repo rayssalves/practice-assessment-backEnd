@@ -45,10 +45,9 @@ Default config is setup for usage with an ElephantSQL database instance, you nee
     "url": "YOUR_ELEPHANTSQL_URL_HERE",
     "dialect": "postgres",
     "operatorsAliases": "0"
-  },
+  }
 }
 ```
-
 
 If planning to use this template with a docker database the config object should be changed to:
 
@@ -67,7 +66,6 @@ If planning to use this template with a docker database the config object should
 ```
 
 And you must revert the changes on this line in models/index.js: https://github.com/Codaisseur/express-template/commit/ada7711c8b19c8f240bc61f94743213efe4a77d2#diff-18c449caa39363f82bacb4f7489e7783L15
-
 
 6. Create database, run migrations & seed data
 
@@ -140,3 +138,9 @@ They can found in [./sampleRequests/httpie.md](./sampleRequests/httpie.md)
 - [Signup, Login & auth middleware](https://github.com/Codaisseur/express-template/pull/3)
 - [Configure cors](https://github.com/Codaisseur/express-template/pull/4)
 - [Seed using models & add delay middleware](https://github.com/Codaisseur/express-template/pull/5)
+
+| Server contains sequelize models and migrations for Space & Story | 2 |
+| Records should not be allowed to be created if the fields marked as required contain empty values | 2 |
+| User, Space and Story models are correctly related | 2 |
+| Seeders are present to create at least 2 spaces and 4 stories | 2 |
+| Total | 8 |
