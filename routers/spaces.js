@@ -12,24 +12,6 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-//goes to the details page
-
-// router.get("/:id", async (req, res, next) => {
-//   try {
-//     const specificSpace = await Space.findByPk(req.params.id, {
-//       include: [Story],
-//     });
-//     if (!specificSpace) {
-//       res.status(404).send(`Space with id ${req.params.id} not found`);
-//     } else {
-//       res.send(specificSpace);
-//     }
-//   } catch (e) {
-//     console.log(e);
-//     next(e);
-//   }
-// });
-
 router.get("/:id", async (req, res) => {
   try {
     const spaceId = req.params.id;
@@ -39,6 +21,22 @@ router.get("/:id", async (req, res) => {
       order: [[Story, "createdAt", "DESC"]],
     });
     res.status(200).send(getSpaceById);
+  } catch (error) {
+    console.log(error.message);
+    return res.status(400).send("invalid ID");
+  }
+});
+
+//get space by userId
+router.get("/user/:id", async (req, res) => {
+  try {
+    const userId = req.params.id;
+    //findOne because user only have one space
+    const getUserById = await Space.findOne(userId, {
+      include: [{ model: Story }],
+    });
+
+    res.status(200).send(getUserById);
   } catch (error) {
     console.log(error.message);
     return res.status(400).send("invalid ID");
